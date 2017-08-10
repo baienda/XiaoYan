@@ -39,6 +39,7 @@ public class VideoFragment extends MVPBaseFragment<VideoPresenter> implements Vi
     public void init() {
 //        rv_categories.setAdapter(null);
 //        rv_categories.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+        showLoadingDialog();
     }
 
     @Override
