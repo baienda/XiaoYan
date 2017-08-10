@@ -6,7 +6,7 @@ import com.baienda.xiaoyan.retrofit.NetworkManager;
 /**
  * Created by hjn on 2016/11/3.
  */
-public abstract class MVPBasePresenter<T extends IBaseView> {
+public abstract class MVPBasePresenter<T extends BaseContract.View> {
     protected T mView;
     public void attach(T mView) {
         this.mView = mView;

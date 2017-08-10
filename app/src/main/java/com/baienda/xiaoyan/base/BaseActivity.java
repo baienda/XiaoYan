@@ -54,13 +54,11 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         mRootView = LayoutInflater.from(this).inflate(setLayout(), null);
         //设置布局
         setContentView(mRootView);
-        //添加BackgroundImageView
-        addBackgroundImageView(this);
         //绑定ButterKnife
         mBind = ButterKnife.bind(this);
         //添加Activity到管理堆栈
         AppManager.getInstance().addActivity(this);
-        //设置UI
+        //注册监听事件
         initEvent();
         //初始化
         init();

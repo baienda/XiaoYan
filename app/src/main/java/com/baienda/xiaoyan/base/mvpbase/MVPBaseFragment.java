@@ -10,14 +10,14 @@ import com.baienda.xiaoyan.base.BaseFragment;
 /**
  * Created by admin on 2016/11/1.
  */
-public abstract class MVPBaseFragment<T extends MVPBasePresenter<IBaseView>> extends BaseFragment {
+public abstract class MVPBaseFragment<T extends MVPBasePresenter> extends BaseFragment implements BaseContract.View {
     protected MVPBasePresenter mPresenter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         mPresenter = createPresenter();
-        if (mPresenter != null && this instanceof IBaseView) {
-            mPresenter.attach((IBaseView) this);
+        if (mPresenter != null) {
+            mPresenter.attach(this);
         }
         super.onCreate(savedInstanceState);
 

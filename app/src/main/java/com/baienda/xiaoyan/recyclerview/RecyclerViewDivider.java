@@ -1,4 +1,4 @@
-package com.baienda.xiaoyan.itemdecoration;
+package com.baienda.xiaoyan.recyclerview;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
