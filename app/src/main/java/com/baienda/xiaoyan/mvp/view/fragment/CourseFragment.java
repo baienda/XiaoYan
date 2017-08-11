@@ -5,10 +5,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.baienda.xiaoyan.R;
-import com.baienda.xiaoyan.adapter.HotCoursesAdapter;
 import com.baienda.xiaoyan.base.mvpbase.MVPBaseFragment;
 import com.baienda.xiaoyan.mvp.contract.CourseContract;
 import com.baienda.xiaoyan.mvp.presenter.CoursePresenter;
+import com.baienda.xiaoyan.recyclerview.CommonAdapter;
+import com.baienda.xiaoyan.recyclerview.base.ViewHolder;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener;
@@ -30,7 +31,7 @@ public class CourseFragment extends MVPBaseFragment<CoursePresenter> implements 
     @BindView(R.id.smart_refresh_layout)
     SmartRefreshLayout smart_refresh_layout;
 
-    private HotCoursesAdapter hot_courses_adapter;
+    private CommonAdapter hot_courses_adapter;
     private List hot_courses_data;
 
     @Override
@@ -51,7 +52,12 @@ public class CourseFragment extends MVPBaseFragment<CoursePresenter> implements 
         for (int i = 0; i < 40; i++) {
             hot_courses_data.add(i);
         }
-        hot_courses_adapter = new HotCoursesAdapter(getContext(), hot_courses_data);
+        hot_courses_adapter = new CommonAdapter(getContext(), R.layout.item_hot_courses, hot_courses_data) {
+            @Override
+            protected void convert(ViewHolder holder, Object o, int position) {
+
+            }
+        };
         rv_hot_courses.setAdapter(hot_courses_adapter);
         rv_hot_courses.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         rv_hot_courses.setNestedScrollingEnabled(false);

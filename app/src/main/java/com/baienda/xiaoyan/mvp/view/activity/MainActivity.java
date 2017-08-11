@@ -93,6 +93,14 @@ public class MainActivity extends MVPBaseActivity<MainPresenter> implements Radi
         }
     }
 
+    private void showConfig(boolean show){
+        if (show) {
+            iv_config.setVisibility(View.VISIBLE);
+        } else {
+            iv_config.setVisibility(View.INVISIBLE);
+        }
+    }
+
     public void switchContent(Fragment to) {
         if (content_fragment != to) {
             FragmentTransaction transaction = mFragmentManager.beginTransaction();

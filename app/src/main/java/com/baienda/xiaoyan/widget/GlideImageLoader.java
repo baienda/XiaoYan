@@ -1,6 +1,7 @@
 package com.baienda.xiaoyan.widget;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -18,6 +19,12 @@ public class GlideImageLoader extends ImageLoader {
 
     @Override
     public ImageView createImageView(Context context) {
-        return super.createImageView(context);
+        CoverImageView imageView = new CoverImageView(context);
+        imageView.setTextSize(50);
+        imageView.setTextColor(Color.WHITE);
+        imageView.setText("#哈哈哈哈");
+        imageView.setColorFilter(Color.parseColor("#AA222222"));
+        return imageView;
     }
+
 }

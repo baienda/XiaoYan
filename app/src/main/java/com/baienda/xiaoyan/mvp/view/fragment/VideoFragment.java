@@ -1,15 +1,21 @@
 package com.baienda.xiaoyan.mvp.view.fragment;
 
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 
-import com.baienda.xiaoyan.widget.GlideImageLoader;
 import com.baienda.xiaoyan.R;
-import com.baienda.xiaoyan.adapter.HotCategoriesAdapter;
 import com.baienda.xiaoyan.base.mvpbase.MVPBaseFragment;
 import com.baienda.xiaoyan.mvp.contract.VideoContract;
 import com.baienda.xiaoyan.mvp.presenter.VideoPresenter;
+import com.baienda.xiaoyan.recyclerview.CommonAdapter;
+import com.baienda.xiaoyan.recyclerview.base.ViewHolder;
+import com.baienda.xiaoyan.utils.system.SystemUtil;
+import com.baienda.xiaoyan.widget.GlideImageLoader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener;
@@ -37,7 +43,7 @@ public class VideoFragment extends MVPBaseFragment<VideoPresenter> implements Vi
     @BindView(R.id.banner)
     Banner banner;
 
-    private HotCategoriesAdapter hot_categories_adapter;
+    private CommonAdapter hot_categories_adapter;
     private List hot_categories_data;
 
     @Override
@@ -59,7 +65,40 @@ public class VideoFragment extends MVPBaseFragment<VideoPresenter> implements Vi
         }
         smart_refresh_layout.setEnableAutoLoadmore(false);
 
-        hot_categories_adapter = new HotCategoriesAdapter(getContext(), hot_categories_data);
+        hot_categories_adapter = new CommonAdapter(getContext(), R.layout.item_hot_categories, hot_categories_data) {
+            @Override
+            protected void convert(ViewHolder holder, Object o, int position) {
+                holder.setText(R.id.tv_title, "#生活");
+            }
+
+            @Override
+            public void onViewHolderCreated(ViewHolder holder, View itemView) {
+                super.onViewHolderCreated(holder, itemView);
+                ViewGroup.LayoutParams params = itemView.getLayoutParams();
+                int n = (int) (SystemUtil.getScreenWidth(mContext) / 2 - 5);
+                params.width = n;
+                params.height = n;
+                holder.getView(R.id.tv_title).setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View view, MotionEvent motionEvent) {
+                        switch (motionEvent.getAction()) {
+                            case MotionEvent.ACTION_DOWN:
+                                view.setBackgroundColor(Color.TRANSPARENT);
+                                return true;
+                            case MotionEvent.ACTION_UP:
+                                Log.e("======","点击了");
+                                view.setBackgroundColor(Color.parseColor("#AA222222"));
+                                return false;
+                            case MotionEvent.ACTION_CANCEL:
+                                view.setBackgroundColor(Color.parseColor("#AA222222"));
+                                return false;
+                        }
+                        return false;
+                    }
+                });
+            }
+
+        };
         rv_hot_categories.setAdapter(hot_categories_adapter);
         rv_hot_categories.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
         rv_hot_categories.setNestedScrollingEnabled(false);
