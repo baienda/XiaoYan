@@ -1,4 +1,4 @@
-package com.baienda.xiaoyan.contract;
+package com.baienda.xiaoyan.mvp.contract;
 
 import com.baienda.xiaoyan.base.mvpbase.BaseContract;
 

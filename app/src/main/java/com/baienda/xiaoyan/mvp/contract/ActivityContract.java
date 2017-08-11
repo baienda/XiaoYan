@@ -1,4 +1,4 @@
-package com.baienda.xiaoyan.contract;
+package com.baienda.xiaoyan.mvp.contract;
 
 import com.baienda.xiaoyan.base.mvpbase.BaseContract;
 
@@ -6,7 +6,7 @@ import com.baienda.xiaoyan.base.mvpbase.BaseContract;
  * Created by XY02 on 2017/8/10.
  */
 
-public interface VideoContract {
+public interface ActivityContract {
     interface View extends BaseContract.View{
 
     }

@@ -1,7 +1,7 @@
-package com.baienda.xiaoyan.presenter;
+package com.baienda.xiaoyan.mvp.presenter;
 
 import com.baienda.xiaoyan.base.mvpbase.MVPBasePresenter;
-import com.baienda.xiaoyan.contract.VideoContract;
+import com.baienda.xiaoyan.mvp.contract.VideoContract;
 
 /**
  * Created by XY02 on 2017/8/10.

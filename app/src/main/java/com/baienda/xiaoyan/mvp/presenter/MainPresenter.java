@@ -1,8 +1,8 @@
-package com.baienda.xiaoyan.presenter;
+package com.baienda.xiaoyan.mvp.presenter;
 
 import com.baienda.xiaoyan.base.mvpbase.MVPBasePresenter;
-import com.baienda.xiaoyan.contract.MainContract;
-import com.baienda.xiaoyan.view.activity.MainActivity;
+import com.baienda.xiaoyan.mvp.contract.MainContract;
+import com.baienda.xiaoyan.mvp.view.activity.MainActivity;
 
 /**
  * Created by XY02 on 2017/8/10.
