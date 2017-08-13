@@ -65,6 +65,10 @@ public class MainActivity extends MVPBaseActivity<MainPresenter> implements Radi
         mFragmentManager.beginTransaction()
                 .add(R.id.fl_fragment, course_fragment)
                 .commit();
+        initTabs();
+    }
+
+    private void initTabs() {
         int course_height = rb_course.getCompoundDrawables()[1].getMinimumHeight();
         int activity_height = rb_activity.getCompoundDrawables()[1].getMinimumHeight();
         int video_height = rb_video.getCompoundDrawables()[1].getMinimumHeight();
@@ -72,10 +76,10 @@ public class MainActivity extends MVPBaseActivity<MainPresenter> implements Radi
         int max_1 = Math.max(course_height, activity_height);
         int max_2 = Math.max(video_height, video_height);
         int max = Math.max(max_1, max_2);
-        rb_course.setCompoundDrawablePadding((max - course_height) / 2);
-        rb_activity.setCompoundDrawablePadding((max - activity_height) / 2);
-        rb_video.setCompoundDrawablePadding((max - video_height) / 2);
-        rb_me.setCompoundDrawablePadding((max - me_height) / 2);
+        rb_course.setPadding(0, (max - course_height) / 2, 0, 0);
+        rb_activity.setPadding(0, (max - activity_height) / 2, 0, 0);
+        rb_video.setPadding(0, (max - video_height) / 2, 0, 0);
+        rb_me.setPadding(0, (max - me_height) / 2, 0, 0);
     }
 
     @Override
