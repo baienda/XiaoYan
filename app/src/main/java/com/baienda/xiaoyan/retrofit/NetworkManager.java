@@ -13,7 +13,7 @@ import retrofit2.Call;
  */
 
 public class NetworkManager {
-    private ArrayMap<String, List<Call>> mCalls;//管理
+    private ArrayMap<String, List<Call>> mCalls;//按类名以及该类中的网络请求集合存储
 
     /**
      * 构造方法私有化

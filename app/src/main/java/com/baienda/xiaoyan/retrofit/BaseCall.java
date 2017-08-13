@@ -22,12 +22,16 @@ public class BaseCall<T> implements Call<T> {
         mExecutor = new MainThreadExecutor();
     }
 
+    private void removeFromNetworkManager() {
+        if (clzName != null) {
+            NetworkManager.getInstance().removeRequest(clzName, mCall);
+        }
+    }
+
     @Override
     public Response<T> execute() throws IOException {
         Response<T> response = mCall.execute();
-        if (clzName!=null){
-            NetworkManager.getInstance().removeRequest(clzName,mCall);
-        }
+
         return response;
     }
 
@@ -46,9 +50,7 @@ public class BaseCall<T> implements Call<T> {
                 mExecutor.execute(new Runnable() {
                     @Override
                     public void run() {
-                        if (clzName!=null){
-                            NetworkManager.getInstance().removeRequest(clzName,mCall);
-                        }
+                        removeFromNetworkManager();
                         callback.onResponse(BaseCall.this, response);
                     }
                 });
@@ -59,9 +61,7 @@ public class BaseCall<T> implements Call<T> {
                 mExecutor.execute(new Runnable() {
                     @Override
                     public void run() {
-                        if (clzName!=null){
-                            NetworkManager.getInstance().removeRequest(clzName,mCall);
-                        }
+                        removeFromNetworkManager();
                         callback.onFailure(BaseCall.this, t);
                     }
                 });
@@ -82,9 +82,7 @@ public class BaseCall<T> implements Call<T> {
 
     @Override
     public void cancel() {
-        if (clzName!=null){
-            NetworkManager.getInstance().removeRequest(clzName,mCall);
-        }
+        removeFromNetworkManager();
         mCall.cancel();
     }
 

@@ -14,8 +14,7 @@
         <RelativeLayout
             android:id="@+id/rl_higher_view"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="#F00">
+            android:layout_height="200dp">
 
             <ImageView
                 android:id="@+id/iv_bg"
@@ -167,7 +166,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="10dp"
-            android:background="#AAAAAA" />
+            android:background="@color/gray" />
 
         <LinearLayout style="@style/MeItem">
 
@@ -230,7 +229,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="5dp"
-            android:background="#AAAAAA" />
+            android:background="@color/gray" />
 
         <LinearLayout style="@style/MeItem">
 
@@ -323,7 +322,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="5dp"
-            android:background="#AAAAAA" />
+            android:background="@color/gray" />
 
         <LinearLayout style="@style/MeItem">
 
@@ -356,6 +355,6 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="5dp"
-            android:background="#AAAAAA" />
+            android:background="@color/gray" />
     </LinearLayout>
 </com.baienda.xiaoyan.widget.HeadZoomScrollView>
