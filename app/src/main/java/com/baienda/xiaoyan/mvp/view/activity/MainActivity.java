@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -25,6 +26,9 @@ public class MainActivity extends MVPBaseActivity<MainPresenter> implements Radi
     TextView tv_title;
     @BindView(R.id.tv_city)
     TextView tv_city;
+
+    @BindView(R.id.iv_config)
+    ImageView iv_config;
 
     @BindView(R.id.rg_bottom_menu)
     RadioGroup rg_bottom_menu;
@@ -93,7 +97,7 @@ public class MainActivity extends MVPBaseActivity<MainPresenter> implements Radi
         }
     }
 
-    private void showConfig(boolean show){
+    private void showConfig(boolean show) {
         if (show) {
             iv_config.setVisibility(View.VISIBLE);
         } else {
@@ -119,11 +123,13 @@ public class MainActivity extends MVPBaseActivity<MainPresenter> implements Radi
             case R.id.rb_course:
                 tv_title.setText(getString(R.string.course));
                 showCity(true);
+                showConfig(false);
                 switchContent(course_fragment);
                 break;
             case R.id.rb_activity:
                 tv_title.setText(getString(R.string.activity));
                 showCity(true);
+                showConfig(false);
                 if (activity_fragment == null)
                     activity_fragment = new ActivityFragment();
                 switchContent(activity_fragment);
@@ -131,6 +137,7 @@ public class MainActivity extends MVPBaseActivity<MainPresenter> implements Radi
             case R.id.rb_video:
                 tv_title.setText(getString(R.string.video));
                 showCity(false);
+                showConfig(false);
                 if (video_fragment == null)
                     video_fragment = new VideoFragment();
                 switchContent(video_fragment);
@@ -138,6 +145,7 @@ public class MainActivity extends MVPBaseActivity<MainPresenter> implements Radi
             case R.id.rb_me:
                 tv_title.setText(getString(R.string.me));
                 showCity(false);
+                showConfig(true);
                 if (me_fragment == null)
                     me_fragment = new MeFragment();
                 switchContent(me_fragment);
