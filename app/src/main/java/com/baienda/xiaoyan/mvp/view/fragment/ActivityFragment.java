@@ -45,9 +45,6 @@ public class ActivityFragment extends MVPBaseFragment<ActivityPresenter> impleme
     @Override
     public void init() {
         activity_list_data = new ArrayList();
-        for (int i = 0; i < 40; i++) {
-            activity_list_data.add(i);
-        }
         activity_list_adapter = new CommonAdapter(getContext(), R.layout.item_activity_list, activity_list_data) {
             @Override
             protected void convert(ViewHolder holder, Object o, int position) {
@@ -63,6 +60,8 @@ public class ActivityFragment extends MVPBaseFragment<ActivityPresenter> impleme
         rv_activity_list.setAdapter(activity_list_adapter);
         rv_activity_list.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         rv_activity_list.addItemDecoration(new RecyclerViewDivider(false));
+
+        mPresenter.start();
     }
 
     @Override
@@ -73,5 +72,12 @@ public class ActivityFragment extends MVPBaseFragment<ActivityPresenter> impleme
     @Override
     public void onClick(View v) {
 
+    }
+
+    @Override
+    public void setActivityData(List data) {
+        activity_list_data.clear();
+        activity_list_data.addAll(data);
+        activity_list_adapter.notifyDataSetChanged();
     }
 }

@@ -60,9 +60,6 @@ public class VideoFragment extends MVPBaseFragment<VideoPresenter> implements Vi
     @Override
     public void init() {
         hot_categories_data = new ArrayList();
-        for (int i = 0; i < 40; i++) {
-            hot_categories_data.add(i);
-        }
         smart_refresh_layout.setEnableAutoLoadmore(false);
 
         hot_categories_adapter = new CommonAdapter(getContext(), R.layout.item_hot_categories, hot_categories_data) {
@@ -124,6 +121,8 @@ public class VideoFragment extends MVPBaseFragment<VideoPresenter> implements Vi
         banner.setDelayTime(2500);
         //设置指示器位置（当banner模式中有指示器时）
         banner.setIndicatorGravity(BannerConfig.CENTER);
+
+        mPresenter.start();
     }
 
     @Override
@@ -134,6 +133,13 @@ public class VideoFragment extends MVPBaseFragment<VideoPresenter> implements Vi
     @Override
     public void onClick(View v) {
 
+    }
+
+    @Override
+    public void setVideoData(List data) {
+        hot_categories_data.clear();
+        hot_categories_data.addAll(data);
+        hot_categories_adapter.notifyDataSetChanged();
     }
 
     @Override

@@ -9,6 +9,6 @@ public interface BaseContract {
 
     }
     interface Presenter{
-
+        void start();
     }
 }

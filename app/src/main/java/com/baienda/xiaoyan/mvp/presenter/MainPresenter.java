@@ -9,5 +9,8 @@ import com.baienda.xiaoyan.mvp.view.activity.MainActivity;
  */
 
 public class MainPresenter extends MVPBasePresenter<MainActivity> implements MainContract.Presenter {
-    
+    @Override
+    public void start() {
+
+    }
 }
