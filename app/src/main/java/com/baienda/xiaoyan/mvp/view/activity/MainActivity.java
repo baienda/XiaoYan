@@ -84,8 +84,7 @@ public class MainActivity extends MVPBaseActivity<MainPresenter> implements Radi
 
     @Override
     public void onClick(View v) {
-        int id = v.getId();
-        switch (id) {
+        switch (v.getId()) {
             case R.id.tv_city:
                 startActivityForResult(ChooseCityActivity.class, 100);
                 break;

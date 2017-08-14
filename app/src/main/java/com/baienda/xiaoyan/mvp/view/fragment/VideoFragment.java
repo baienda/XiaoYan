@@ -1,17 +1,20 @@
 package com.baienda.xiaoyan.mvp.view.fragment;
 
 import android.graphics.Color;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.baienda.xiaoyan.R;
 import com.baienda.xiaoyan.base.mvpbase.MVPBaseFragment;
 import com.baienda.xiaoyan.mvp.contract.VideoContract;
 import com.baienda.xiaoyan.mvp.presenter.VideoPresenter;
+import com.baienda.xiaoyan.mvp.view.activity.CategoryInfoActivity;
 import com.baienda.xiaoyan.recyclerview.CommonAdapter;
 import com.baienda.xiaoyan.recyclerview.base.ViewHolder;
 import com.baienda.xiaoyan.utils.system.SystemUtil;
@@ -65,29 +68,53 @@ public class VideoFragment extends MVPBaseFragment<VideoPresenter> implements Vi
         hot_categories_adapter = new CommonAdapter(getContext(), R.layout.item_hot_categories, hot_categories_data) {
             @Override
             protected void convert(ViewHolder holder, Object o, int position) {
-                holder.setText(R.id.tv_title, "#生活");
+                holder.setText(R.id.tv_title, "# 生活" + position);
+                if (position % 2 == 0) {
+                    if (position == hot_categories_data.size() - 2)
+                        holder.itemView.setPadding(0, 0, 5, 0);
+                    else
+                        holder.itemView.setPadding(0, 0, 5, 10);
+
+                } else {
+                    if (position == hot_categories_data.size() - 1)
+                        holder.itemView.setPadding(5, 0, 0, 0);
+                    else
+                        holder.itemView.setPadding(5, 0, 0, 10);
+                }
             }
 
             @Override
-            public void onViewHolderCreated(ViewHolder holder, View itemView) {
+            public void onViewHolderCreated(final ViewHolder holder, View itemView) {
                 super.onViewHolderCreated(holder, itemView);
+
+                //给单个item设置宽高
                 ViewGroup.LayoutParams params = itemView.getLayoutParams();
-                int n = (int) (SystemUtil.getScreenWidth(mContext) / 2 - 5);
+                int n = (int) (SystemUtil.getScreenWidth(mContext) / 2);
                 params.width = n;
                 params.height = n;
+
+                //默认给ImageView添加蒙版
+                final ImageView image = holder.getView(R.id.iv_image);
+                image.setColorFilter(getResources().getColor(R.color.transparent_black));
+
+                //给覆盖的TextView设置触摸事件来控制ImageView蒙版颜色
                 holder.getView(R.id.tv_title).setOnTouchListener(new View.OnTouchListener() {
                     @Override
                     public boolean onTouch(View view, MotionEvent motionEvent) {
                         switch (motionEvent.getAction()) {
                             case MotionEvent.ACTION_DOWN:
-                                view.setBackgroundColor(Color.TRANSPARENT);
+                                image.setColorFilter(Color.TRANSPARENT);
                                 return true;
                             case MotionEvent.ACTION_UP:
-                                Log.e("======","点击了");
-                                view.setBackgroundColor(Color.parseColor("#AA222222"));
+                                Bundle bundle = new Bundle();
+                                String title = ((TextView) holder.getView(R.id.tv_title)).getText().toString();
+                                title = title.replace("# ", "");
+                                bundle.putString("title", title);
+                                startActivity(CategoryInfoActivity.class, bundle);
+                                image.setColorFilter(getResources().getColor(R.color.transparent_black));
                                 return false;
                             case MotionEvent.ACTION_CANCEL:
-                                view.setBackgroundColor(Color.parseColor("#AA222222"));
+                                image.setColorFilter(getResources().getColor(R.color.transparent_black));
                                 return false;
                         }
                         return false;
