@@ -5,10 +5,14 @@ import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.baienda.xiaoyan.R;
@@ -18,6 +22,7 @@ import com.baienda.xiaoyan.mvp.view.fragment.ActivityFragment;
 import com.baienda.xiaoyan.mvp.view.fragment.CourseFragment;
 import com.baienda.xiaoyan.mvp.view.fragment.MeFragment;
 import com.baienda.xiaoyan.mvp.view.fragment.VideoFragment;
+import com.baienda.xiaoyan.utils.system.SystemUtil;
 
 import butterknife.BindView;
 
@@ -42,9 +47,14 @@ public class MainActivity extends MVPBaseActivity<MainPresenter> implements Radi
     @BindView(R.id.rb_me)
     RadioButton rb_me;
 
+    @BindView(R.id.rl_title_wrapper)
+    RelativeLayout rl_title_wrapper;
+
     private FragmentManager mFragmentManager;
     private Fragment course_fragment, activity_fragment, video_fragment, me_fragment;
     private Fragment content_fragment;
+    private PopupWindow config_window;
+    private int config_offset;
 
     @Override
     public int setLayout() {
@@ -55,6 +65,7 @@ public class MainActivity extends MVPBaseActivity<MainPresenter> implements Radi
     public void initEvent() {
         rg_bottom_menu.setOnCheckedChangeListener(this);
         tv_city.setOnClickListener(this);
+        iv_config.setOnClickListener(this);
     }
 
     @Override
@@ -88,8 +99,25 @@ public class MainActivity extends MVPBaseActivity<MainPresenter> implements Radi
             case R.id.tv_city:
                 startActivityForResult(ChooseCityActivity.class, 100);
                 break;
+            case R.id.iv_config:
+                if (config_window == null) {
+                    View content = LayoutInflater.from(this).inflate(R.layout.content_config, null);
+                    content.measure(0, 0);
+                    config_window = new PopupWindow(this);
+                    config_window.setContentView(content);
+                    config_window.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
+                    config_window.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+                    //去除PopupWindow的黑边
+                    config_window.setBackgroundDrawable(null);
+                    //让PopupWindow出现在屏幕右侧
+                    config_offset = (int) (SystemUtil.getScreenWidth(this) - content.getMeasuredWidth());
+                }
+                if (config_window.isShowing())
+                    config_window.dismiss();
+                else
+                    config_window.showAsDropDown(rl_title_wrapper, config_offset, 0);
+                break;
         }
-
     }
 
     private void showCity(boolean show) {
@@ -105,6 +133,8 @@ public class MainActivity extends MVPBaseActivity<MainPresenter> implements Radi
             iv_config.setVisibility(View.VISIBLE);
         } else {
             iv_config.setVisibility(View.INVISIBLE);
+            if (config_window != null && config_window.isShowing())
+                config_window.dismiss();
         }
     }
 

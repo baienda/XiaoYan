@@ -6,6 +6,10 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <!--给Activity统一设置进入退出动画-->
+        <item name="android:windowAnimationStyle">@style/AnimationOfActivity</item>
+
     </style>
 
     <style name="BottomMenu">
@@ -26,4 +30,16 @@
         <item name="android:padding">10dp</item>
     </style>
 
+    <style name="ConfigItem">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="AnimationOfActivity" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/activity_in</item>
+        <!--<item name="android:activityOpenExitAnimation">@anim/activity_out</item>-->
+        <!--<item name="android:activityCloseEnterAnimation">@anim/activity_in</item>-->
+        <item name="android:activityCloseExitAnimation">@anim/activity_out</item>
+    </style>
 </resources>

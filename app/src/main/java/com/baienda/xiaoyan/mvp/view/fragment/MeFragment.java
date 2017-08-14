@@ -40,6 +40,18 @@ public class MeFragment extends MVPBaseFragment<MePresenter> implements MeContra
     LinearLayout ll_amount_of_jewel;
     @BindView(R.id.ll_money_of_xiaoyan)
     LinearLayout ll_money_of_xiaoyan;
+    @BindView(R.id.ll_my_order)
+    LinearLayout ll_my_order;
+    @BindView(R.id.ll_my_activity)
+    LinearLayout ll_my_activity;
+    @BindView(R.id.ll_chat)
+    LinearLayout ll_chat;
+    @BindView(R.id.ll_circle_of_friends)
+    LinearLayout ll_circle_of_friends;
+    @BindView(R.id.ll_notification)
+    LinearLayout ll_notification;
+    @BindView(R.id.ll_service_team)
+    LinearLayout ll_service_team;
 
     @BindView(R.id.rl_higher_view)
     RelativeLayout rl_higher_view;
@@ -51,7 +63,12 @@ public class MeFragment extends MVPBaseFragment<MePresenter> implements MeContra
 
     @Override
     public void initEvent() {
-
+        ll_my_order.setOnClickListener(this);
+        ll_my_activity.setOnClickListener(this);
+        ll_chat.setOnClickListener(this);
+        ll_circle_of_friends.setOnClickListener(this);
+        ll_notification.setOnClickListener(this);
+        ll_service_team.setOnClickListener(this);
     }
 
     @Override
@@ -67,6 +84,19 @@ public class MeFragment extends MVPBaseFragment<MePresenter> implements MeContra
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()) {
+            case R.id.ll_my_order:
+                break;
+            case R.id.ll_my_activity:
+                break;
+            case R.id.ll_chat:
+                break;
+            case R.id.ll_circle_of_friends:
+                break;
+            case R.id.ll_notification:
+                break;
+            case R.id.ll_service_team:
+                break;
+        }
     }
 }
