@@ -10,6 +10,10 @@ import com.baienda.xiaoyan.R;
 import com.baienda.xiaoyan.base.mvpbase.MVPBaseFragment;
 import com.baienda.xiaoyan.mvp.contract.MeContract;
 import com.baienda.xiaoyan.mvp.presenter.MePresenter;
+import com.baienda.xiaoyan.mvp.view.activity.CircleOfFriendActivity;
+import com.baienda.xiaoyan.mvp.view.activity.MyActivityActivity;
+import com.baienda.xiaoyan.mvp.view.activity.MyOrderActivity;
+import com.baienda.xiaoyan.mvp.view.activity.NotificationActivity;
 import com.baienda.xiaoyan.widget.HeadZoomScrollView;
 
 import butterknife.BindView;
@@ -86,14 +90,18 @@ public class MeFragment extends MVPBaseFragment<MePresenter> implements MeContra
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.ll_my_order:
+                startActivity(MyOrderActivity.class);
                 break;
             case R.id.ll_my_activity:
+                startActivity(MyActivityActivity.class);
                 break;
             case R.id.ll_chat:
                 break;
             case R.id.ll_circle_of_friends:
+                startActivity(CircleOfFriendActivity.class);
                 break;
             case R.id.ll_notification:
+                startActivity(NotificationActivity.class);
                 break;
             case R.id.ll_service_team:
                 break;

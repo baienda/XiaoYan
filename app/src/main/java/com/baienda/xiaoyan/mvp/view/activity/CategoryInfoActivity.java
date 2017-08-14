@@ -27,8 +27,6 @@ public class CategoryInfoActivity extends MVPBaseActivity<CategoryInfoPresenter>
 
     @BindView(R.id.iv_left)
     ImageView iv_left;
-    @BindView(R.id.iv_right)
-    ImageView iv_right;
 
     @BindView(R.id.rv_info_list)
     RecyclerView rv_info_list;
@@ -48,9 +46,7 @@ public class CategoryInfoActivity extends MVPBaseActivity<CategoryInfoPresenter>
 
     @Override
     public void init() {
-        iv_right.setVisibility(View.GONE);
-        String title = getIntent().getExtras().getString("title");
-        tv_title.setText(title);
+        initTitle();
         category_info_data = new ArrayList();
         category_info_adapter = new CommonAdapter(this, R.layout.item_category_info, category_info_data) {
             @Override
@@ -87,6 +83,11 @@ public class CategoryInfoActivity extends MVPBaseActivity<CategoryInfoPresenter>
         rv_info_list.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
         mPresenter.start();
+    }
+
+    private void initTitle() {
+        String title = getIntent().getExtras().getString("title");
+        tv_title.setText(title);
     }
 
     @Override

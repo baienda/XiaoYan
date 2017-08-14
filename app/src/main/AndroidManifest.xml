@@ -23,7 +23,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".mvp.view.activity.ChooseCityActivity" />
-        <activity android:name=".mvp.view.activity.CategoryInfoActivity"/>
+        <activity android:name=".mvp.view.activity.CategoryInfoActivity" />
+        <activity android:name=".mvp.view.activity.MyOrderActivity" />
+        <activity android:name=".mvp.view.activity.MyActivityActivity" />
+        <activity android:name=".mvp.view.activity.CircleOfFriendActivity" />
+        <activity android:name=".mvp.view.activity.NotificationActivity"></activity>
     </application>
 
 </manifest>
