@@ -15,4 +15,18 @@
     <string name="amount_of_jewel">宝石总数</string>
     <string name="money_of_xiaoyan">孝颜币</string>
     <string name="address_list">通讯录</string>
+    <string name="new_friend">新的朋友</string>
+    <string name="add_friend">添加好友</string>
+    <string name="search_friend">查找好友</string>
+    <string name="group">群组</string>
+    <string name="search_hint">搜索用户昵称/手机号</string>
+    <string name="yes">确定</string>
+    <string name="head_image">头像</string>
+    <string name="username">昵称</string>
+    <string name="community">社区</string>
+    <string name="real_name">真实姓名</string>
+    <string name="xiaoyan_account">孝颜账号</string>
+    <string name="my_qrcode">我的二维码</string>
+    <string name="userinfo">个人信息</string>
+    <string name="accepted">已同意</string>
 </resources>

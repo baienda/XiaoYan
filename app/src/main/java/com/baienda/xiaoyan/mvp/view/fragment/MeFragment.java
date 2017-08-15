@@ -15,6 +15,7 @@ import com.baienda.xiaoyan.mvp.view.activity.CircleOfFriendActivity;
 import com.baienda.xiaoyan.mvp.view.activity.MyActivityActivity;
 import com.baienda.xiaoyan.mvp.view.activity.MyOrderActivity;
 import com.baienda.xiaoyan.mvp.view.activity.NotificationActivity;
+import com.baienda.xiaoyan.mvp.view.activity.UserInfoActivity;
 import com.baienda.xiaoyan.widget.HeadZoomScrollView;
 
 import butterknife.BindView;
@@ -74,6 +75,7 @@ public class MeFragment extends MVPBaseFragment<MePresenter> implements MeContra
         ll_circle_of_friends.setOnClickListener(this);
         ll_notification.setOnClickListener(this);
         ll_service_team.setOnClickListener(this);
+        iv_head.setOnClickListener(this);
     }
 
     @Override
@@ -90,6 +92,9 @@ public class MeFragment extends MVPBaseFragment<MePresenter> implements MeContra
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.iv_head:
+                startActivity(UserInfoActivity.class);
+                break;
             case R.id.ll_my_order:
                 startActivity(MyOrderActivity.class);
                 break;

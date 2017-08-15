@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".application.XYApplication"
@@ -27,8 +28,12 @@
         <activity android:name=".mvp.view.activity.MyOrderActivity" />
         <activity android:name=".mvp.view.activity.MyActivityActivity" />
         <activity android:name=".mvp.view.activity.CircleOfFriendActivity" />
-        <activity android:name=".mvp.view.activity.NotificationActivity"/>
-        <activity android:name=".mvp.view.activity.ChatActivity"/>
+        <activity android:name=".mvp.view.activity.NotificationActivity" />
+        <activity android:name=".mvp.view.activity.ChatActivity" />
+        <activity android:name=".mvp.view.activity.NewFriendActivity" />
+        <activity android:name=".mvp.view.activity.AddFriendActivity" />
+        <activity android:name=".mvp.view.activity.GroupActivity" />
+        <activity android:name=".mvp.view.activity.UserInfoActivity"></activity>
     </application>
 
 </manifest>

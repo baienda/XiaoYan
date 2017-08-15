@@ -6,12 +6,12 @@ import android.widget.TextView;
 
 import com.baienda.xiaoyan.R;
 import com.baienda.xiaoyan.base.mvpbase.MVPBaseActivity;
-import com.baienda.xiaoyan.mvp.contract.NotificationContract;
-import com.baienda.xiaoyan.mvp.presenter.NotificationPresenter;
+import com.baienda.xiaoyan.mvp.contract.GroupContract;
+import com.baienda.xiaoyan.mvp.presenter.GroupPresenter;
 
 import butterknife.BindView;
 
-public class NotificationActivity extends MVPBaseActivity<NotificationPresenter> implements NotificationContract.View {
+public class GroupActivity extends MVPBaseActivity<GroupPresenter> implements GroupContract.View {
     @BindView(R.id.tv_title)
     TextView tv_title;
 
@@ -20,7 +20,7 @@ public class NotificationActivity extends MVPBaseActivity<NotificationPresenter>
 
     @Override
     public int setLayout() {
-        return R.layout.activity_notification;
+        return R.layout.activity_group;
     }
 
     @Override
@@ -30,12 +30,13 @@ public class NotificationActivity extends MVPBaseActivity<NotificationPresenter>
 
     @Override
     public void init() {
-        tv_title.setText(getString(R.string.notification));
+        tv_title.setText(getString(R.string.group));
+
     }
 
     @Override
-    public NotificationPresenter createPresenter() {
-        return new NotificationPresenter();
+    public GroupPresenter createPresenter() {
+        return new GroupPresenter();
     }
 
     @Override

@@ -42,18 +42,15 @@ public class CategoryInfoActivity extends MVPBaseActivity<CategoryInfoPresenter>
 
     @Override
     public void init() {
-        initTitle();
+        String title = getIntent().getStringExtra("title");
+        tv_title.setText(title);
+
         category_info_data = new ArrayList();
         category_info_adapter = new CategoryInfoAdapter(this, R.layout.item_category_info, category_info_data);
         rv_info_list.setAdapter(category_info_adapter);
-        rv_info_list.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        rv_info_list.setLayoutManager(new LinearLayoutManager(this));
 
         mPresenter.start();
-    }
-
-    private void initTitle() {
-        String title = getIntent().getStringExtra("title");
-        tv_title.setText(title);
     }
 
     @Override

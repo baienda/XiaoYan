@@ -50,7 +50,7 @@ public class CourseFragment extends MVPBaseFragment<CoursePresenter> implements 
         hot_courses_data = new ArrayList();
         hot_courses_adapter = new HotCoursesAdapter(getContext(), R.layout.item_hot_courses, hot_courses_data);
         rv_hot_courses.setAdapter(hot_courses_adapter);
-        rv_hot_courses.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        rv_hot_courses.setLayoutManager(new LinearLayoutManager(getContext()));
         rv_hot_courses.setNestedScrollingEnabled(false);
 
         mPresenter.start();

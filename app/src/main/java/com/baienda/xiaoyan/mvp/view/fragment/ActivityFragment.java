@@ -46,7 +46,7 @@ public class ActivityFragment extends MVPBaseFragment<ActivityPresenter> impleme
         activity_list_data = new ArrayList();
         activity_list_adapter = new ActivityListAdapter(getContext(), R.layout.item_activity_list, activity_list_data);
         rv_activity_list.setAdapter(activity_list_adapter);
-        rv_activity_list.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        rv_activity_list.setLayoutManager(new LinearLayoutManager(getContext()));
         rv_activity_list.addItemDecoration(new RecyclerViewDivider(false));
 
         mPresenter.start();

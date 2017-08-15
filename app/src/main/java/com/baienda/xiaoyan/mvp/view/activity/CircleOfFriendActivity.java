@@ -32,12 +32,9 @@ public class CircleOfFriendActivity extends MVPBaseActivity<CircleOfFriendPresen
 
     @Override
     public void init() {
-        initTitle();
-    }
-
-    private void initTitle() {
         tv_title.setText(getString(R.string.circle_of_friends));
         iv_right.setVisibility(View.VISIBLE);
+
     }
 
     @Override

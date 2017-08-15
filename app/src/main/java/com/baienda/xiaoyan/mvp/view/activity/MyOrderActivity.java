@@ -46,15 +46,8 @@ public class MyOrderActivity extends MVPBaseActivity<MyOrderPresenter> implement
 
     @Override
     public void init() {
-        initTitle();
-        initTabs();
-    }
-
-    private void initTitle() {
         tv_title.setText(getString(R.string.my_order));
-    }
 
-    private void initTabs() {
         tl_tabs.addTab(tl_tabs.newTab().setText("购买成功"),true);
         tl_tabs.addTab(tl_tabs.newTab().setText("未支付"));
         tl_tabs.addTab(tl_tabs.newTab().setText("已失效"));

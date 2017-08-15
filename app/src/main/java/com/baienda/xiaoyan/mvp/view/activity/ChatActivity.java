@@ -75,7 +75,7 @@ public class ChatActivity extends MVPBaseActivity<ChatPresenter> implements Chat
         address_list_adapter.setOnItemClickListener(this);
 
         rv_friends.setAdapter(chat_adapter);
-        rv_friends.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        rv_friends.setLayoutManager(new LinearLayoutManager(this));
         rv_friends.addItemDecoration(new RecyclerViewDivider(false));
         mPresenter.start();
     }
@@ -130,7 +130,18 @@ public class ChatActivity extends MVPBaseActivity<ChatPresenter> implements Chat
         if (adapter == chat_adapter) {
 
         } else if (adapter == address_list_adapter) {
-
+            switch (position) {
+                case 0:
+                    startActivity(NewFriendActivity.class);
+                    break;
+                case 1:
+                    startActivity(AddFriendActivity.class);
+                    break;
+                case 2:
+                    startActivity(GroupActivity.class);
+                    break;
+                default:
+            }
         }
     }
 

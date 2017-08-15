@@ -28,13 +28,10 @@ public class MyActivityActivity extends MVPBaseActivity<MyActivityPresenter> imp
         iv_left.setOnClickListener(this);
     }
 
-    private void initTitle() {
-        tv_title.setText(getString(R.string.my_activity));
-    }
-
     @Override
     public void init() {
-        initTitle();
+        tv_title.setText(getString(R.string.my_activity));
+
     }
 
     @Override

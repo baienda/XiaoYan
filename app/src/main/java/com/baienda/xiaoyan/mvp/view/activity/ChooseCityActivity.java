@@ -40,7 +40,7 @@ public class ChooseCityActivity extends MVPBaseActivity<ChooseCityPresenter> imp
         location_data = new ArrayList<String>();
         choose_city_adapter = new ChooseCityAdapter(this, R.layout.item_choose_city, location_data);
         rv_city_list.setAdapter(choose_city_adapter);
-        rv_city_list.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        rv_city_list.setLayoutManager(new LinearLayoutManager(this));
         rv_city_list.addItemDecoration(new RecyclerViewDivider(false));
         choose_city_adapter.setOnItemClickListener(this);
 
