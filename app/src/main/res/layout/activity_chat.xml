@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/iv_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_launcher" />
+
+        <RadioGroup
+            android:id="@+id/rg_tabs"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_chat"
+                style="@style/ChatTopTab"
+                android:background="@drawable/chat_top_left_tab_bg_selector"
+                android:checked="true"
+                android:text="@string/chat" />
+
+            <RadioButton
+                android:id="@+id/rb_address_list"
+                style="@style/ChatTopTab"
+                android:background="@drawable/chat_top_right_tab_bg_selector"
+                android:text="@string/address_list" />
+        </RadioGroup>
+    </RelativeLayout>
+
+    <include layout="@layout/divider_horizontal" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_friends"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

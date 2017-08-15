@@ -58,25 +58,25 @@
             android:id="@+id/rb_course"
             style="@style/BottomMenu"
             android:checked="true"
-            android:drawableTop="@drawable/bottom_menu_course_image_selector"
+            android:drawableTop="@drawable/main_bottom_menu_course_image_selector"
             android:text="@string/course" />
 
         <RadioButton
             android:id="@+id/rb_activity"
             style="@style/BottomMenu"
-            android:drawableTop="@drawable/bottom_menu_activity_image_selector"
+            android:drawableTop="@drawable/main_bottom_menu_activity_image_selector"
             android:text="@string/activity" />
 
         <RadioButton
             android:id="@+id/rb_video"
             style="@style/BottomMenu"
-            android:drawableTop="@drawable/bottom_menu_video_image_selector"
+            android:drawableTop="@drawable/main_bottom_menu_video_image_selector"
             android:text="@string/video" />
 
         <RadioButton
             android:id="@+id/rb_me"
             style="@style/BottomMenu"
-            android:drawableTop="@drawable/bottom_menu_me_image_selector"
+            android:drawableTop="@drawable/main_bottom_menu_me_image_selector"
             android:text="@string/me" />
     </RadioGroup>
 </LinearLayout>

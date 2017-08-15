@@ -10,6 +10,7 @@ import com.baienda.xiaoyan.R;
 import com.baienda.xiaoyan.base.mvpbase.MVPBaseFragment;
 import com.baienda.xiaoyan.mvp.contract.MeContract;
 import com.baienda.xiaoyan.mvp.presenter.MePresenter;
+import com.baienda.xiaoyan.mvp.view.activity.ChatActivity;
 import com.baienda.xiaoyan.mvp.view.activity.CircleOfFriendActivity;
 import com.baienda.xiaoyan.mvp.view.activity.MyActivityActivity;
 import com.baienda.xiaoyan.mvp.view.activity.MyOrderActivity;
@@ -96,6 +97,7 @@ public class MeFragment extends MVPBaseFragment<MePresenter> implements MeContra
                 startActivity(MyActivityActivity.class);
                 break;
             case R.id.ll_chat:
+                startActivity(ChatActivity.class);
                 break;
             case R.id.ll_circle_of_friends:
                 startActivity(CircleOfFriendActivity.class);

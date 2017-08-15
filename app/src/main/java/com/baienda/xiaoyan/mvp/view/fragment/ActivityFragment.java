@@ -5,12 +5,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.baienda.xiaoyan.R;
+import com.baienda.xiaoyan.adapter.ActivityListAdapter;
 import com.baienda.xiaoyan.base.mvpbase.MVPBaseFragment;
 import com.baienda.xiaoyan.mvp.contract.ActivityContract;
 import com.baienda.xiaoyan.mvp.presenter.ActivityPresenter;
-import com.baienda.xiaoyan.recyclerview.CommonAdapter;
 import com.baienda.xiaoyan.recyclerview.RecyclerViewDivider;
-import com.baienda.xiaoyan.recyclerview.base.ViewHolder;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 import java.util.ArrayList;
@@ -30,7 +29,7 @@ public class ActivityFragment extends MVPBaseFragment<ActivityPresenter> impleme
     RecyclerView rv_activity_list;
 
     private List activity_list_data;
-    private CommonAdapter activity_list_adapter;
+    private ActivityListAdapter activity_list_adapter;
 
     @Override
     public ActivityPresenter createPresenter() {
@@ -45,18 +44,7 @@ public class ActivityFragment extends MVPBaseFragment<ActivityPresenter> impleme
     @Override
     public void init() {
         activity_list_data = new ArrayList();
-        activity_list_adapter = new CommonAdapter(getContext(), R.layout.item_activity_list, activity_list_data) {
-            @Override
-            protected void convert(ViewHolder holder, Object o, int position) {
-
-            }
-
-            @Override
-            public void onViewHolderCreated(ViewHolder holder, View itemView) {
-                super.onViewHolderCreated(holder, itemView);
-
-            }
-        };
+        activity_list_adapter = new ActivityListAdapter(getContext(), R.layout.item_activity_list, activity_list_data);
         rv_activity_list.setAdapter(activity_list_adapter);
         rv_activity_list.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         rv_activity_list.addItemDecoration(new RecyclerViewDivider(false));

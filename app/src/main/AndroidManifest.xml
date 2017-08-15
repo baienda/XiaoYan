@@ -27,7 +27,8 @@
         <activity android:name=".mvp.view.activity.MyOrderActivity" />
         <activity android:name=".mvp.view.activity.MyActivityActivity" />
         <activity android:name=".mvp.view.activity.CircleOfFriendActivity" />
-        <activity android:name=".mvp.view.activity.NotificationActivity"></activity>
+        <activity android:name=".mvp.view.activity.NotificationActivity"/>
+        <activity android:name=".mvp.view.activity.ChatActivity"/>
     </application>
 
 </manifest>
