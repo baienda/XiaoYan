@@ -11,7 +11,7 @@ import com.baienda.xiaoyan.base.mvpbase.MVPBaseActivity;
 import com.baienda.xiaoyan.mvp.contract.ChooseCityContract;
 import com.baienda.xiaoyan.mvp.presenter.ChooseCityPresenter;
 import com.baienda.xiaoyan.recyclerview.MultiItemTypeAdapter;
-import com.baienda.xiaoyan.recyclerview.RecyclerViewDivider;
+import com.baienda.xiaoyan.recyclerview.decoration.DividerDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +41,7 @@ public class ChooseCityActivity extends MVPBaseActivity<ChooseCityPresenter> imp
         choose_city_adapter = new ChooseCityAdapter(this, R.layout.item_choose_city, location_data);
         rv_city_list.setAdapter(choose_city_adapter);
         rv_city_list.setLayoutManager(new LinearLayoutManager(this));
-        rv_city_list.addItemDecoration(new RecyclerViewDivider(false));
+        rv_city_list.addItemDecoration(new DividerDecoration(false));
         choose_city_adapter.setOnItemClickListener(this);
 
         mPresenter.start();

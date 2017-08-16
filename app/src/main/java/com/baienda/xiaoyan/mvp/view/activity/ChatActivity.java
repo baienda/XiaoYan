@@ -14,8 +14,9 @@ import com.baienda.xiaoyan.adapter.ChatAdapter;
 import com.baienda.xiaoyan.base.mvpbase.MVPBaseActivity;
 import com.baienda.xiaoyan.mvp.contract.ChatContract;
 import com.baienda.xiaoyan.mvp.presenter.ChatPresenter;
+import com.baienda.xiaoyan.recyclerview.decoration.CategoryDecoration;
 import com.baienda.xiaoyan.recyclerview.MultiItemTypeAdapter;
-import com.baienda.xiaoyan.recyclerview.RecyclerViewDivider;
+import com.baienda.xiaoyan.recyclerview.decoration.DividerDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +47,7 @@ public class ChatActivity extends MVPBaseActivity<ChatPresenter> implements Chat
     private List chat_data;
     private List address_list_data;
     private boolean is_left_tab_choosed = true;
+    private CategoryDecoration category_decoration;
 
     @Override
     public ChatPresenter createPresenter() {
@@ -76,7 +78,10 @@ public class ChatActivity extends MVPBaseActivity<ChatPresenter> implements Chat
 
         rv_friends.setAdapter(chat_adapter);
         rv_friends.setLayoutManager(new LinearLayoutManager(this));
-        rv_friends.addItemDecoration(new RecyclerViewDivider(false));
+        rv_friends.addItemDecoration(new DividerDecoration(false));
+
+        category_decoration = new CategoryDecoration(this);
+
         mPresenter.start();
     }
 
@@ -102,10 +107,12 @@ public class ChatActivity extends MVPBaseActivity<ChatPresenter> implements Chat
             case R.id.rb_chat:
                 is_left_tab_choosed = true;
                 rv_friends.setAdapter(chat_adapter);
+                rv_friends.removeItemDecoration(category_decoration);
                 break;
             case R.id.rb_address_list:
                 is_left_tab_choosed = false;
                 rv_friends.setAdapter(address_list_adapter);
+                rv_friends.addItemDecoration(category_decoration);
                 break;
         }
     }

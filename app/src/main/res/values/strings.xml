@@ -29,4 +29,17 @@
     <string name="my_qrcode">我的二维码</string>
     <string name="userinfo">个人信息</string>
     <string name="accepted">已同意</string>
+    <string name="notification_setting">提醒设置</string>
+    <string name="check_update">检查更新</string>
+    <string name="change_password">修改密码</string>
+    <string name="share_to_friend">分享给好友</string>
+    <string name="log_out">退出登录</string>
+    <string name="receive_new_notification">接收新消息通知</string>
+    <string name="voice">语音</string>
+    <string name="shake">震动</string>
+    <string name="complete">完成</string>
+    <string name="set_password">设置密码</string>
+    <string name="please_input_password">请输入密码</string>
+    <string name="please_confirm_password">请确认密码</string>
+    <string name="confirm_password">确认密码</string>
 </resources>

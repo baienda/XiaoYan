@@ -9,29 +9,29 @@
         android:id="@+id/tv_notification_setting"
         style="@style/ConfigItem"
         android:drawableLeft="@mipmap/ic_launcher"
-        android:text="提醒设置" />
+        android:text="@string/notification_setting" />
 
     <TextView
         android:id="@+id/tv_check_update"
         style="@style/ConfigItem"
         android:drawableLeft="@mipmap/ic_launcher"
-        android:text="检查更新" />
+        android:text="@string/check_update" />
 
     <TextView
         android:id="@+id/tv_change_password"
         style="@style/ConfigItem"
         android:drawableLeft="@mipmap/ic_launcher"
-        android:text="修改密码" />
+        android:text="@string/change_password" />
 
     <TextView
-        android:id="@+id/iv_share_to_friend"
+        android:id="@+id/tv_share_to_friend"
         style="@style/ConfigItem"
         android:drawableLeft="@mipmap/ic_launcher"
-        android:text="分享给好友" />
+        android:text="@string/share_to_friend" />
 
     <TextView
-        android:id="@+id/iv_log_out"
+        android:id="@+id/tv_log_out"
         style="@style/ConfigItem"
         android:drawableLeft="@mipmap/ic_launcher"
-        android:text="退出登录" />
+        android:text="@string/log_out" />
 </LinearLayout>

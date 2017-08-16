@@ -33,7 +33,9 @@
         <activity android:name=".mvp.view.activity.NewFriendActivity" />
         <activity android:name=".mvp.view.activity.AddFriendActivity" />
         <activity android:name=".mvp.view.activity.GroupActivity" />
-        <activity android:name=".mvp.view.activity.UserInfoActivity"></activity>
+        <activity android:name=".mvp.view.activity.UserInfoActivity" />
+        <activity android:name=".mvp.view.activity.NotificationSettingActivity"/>
+        <activity android:name=".mvp.view.activity.ChangePasswordActivity"/>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.baienda.xiaoyan.recyclerview;
+package com.baienda.xiaoyan.recyclerview.decoration;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -13,10 +13,10 @@ import android.view.View;
  * Created by Serenade on 2017/8/1.
  */
 
-public class RecyclerViewDivider extends RecyclerView.ItemDecoration {
+public class DividerDecoration extends RecyclerView.ItemDecoration {
     private boolean isXRecyclerView = false;
 
-    public RecyclerViewDivider(boolean isXRecyclerView) {
+    public DividerDecoration(boolean isXRecyclerView) {
         this.isXRecyclerView = isXRecyclerView;
     }
 

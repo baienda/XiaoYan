@@ -9,7 +9,7 @@ import com.baienda.xiaoyan.adapter.ActivityListAdapter;
 import com.baienda.xiaoyan.base.mvpbase.MVPBaseFragment;
 import com.baienda.xiaoyan.mvp.contract.ActivityContract;
 import com.baienda.xiaoyan.mvp.presenter.ActivityPresenter;
-import com.baienda.xiaoyan.recyclerview.RecyclerViewDivider;
+import com.baienda.xiaoyan.recyclerview.decoration.DividerDecoration;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 import java.util.ArrayList;
@@ -47,7 +47,7 @@ public class ActivityFragment extends MVPBaseFragment<ActivityPresenter> impleme
         activity_list_adapter = new ActivityListAdapter(getContext(), R.layout.item_activity_list, activity_list_data);
         rv_activity_list.setAdapter(activity_list_adapter);
         rv_activity_list.setLayoutManager(new LinearLayoutManager(getContext()));
-        rv_activity_list.addItemDecoration(new RecyclerViewDivider(false));
+        rv_activity_list.addItemDecoration(new DividerDecoration(false));
 
         mPresenter.start();
     }

@@ -5,6 +5,7 @@ import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,6 +50,12 @@ public class MainActivity extends MVPBaseActivity<MainPresenter> implements Radi
 
     @BindView(R.id.rl_title_wrapper)
     RelativeLayout rl_title_wrapper;
+
+    private TextView tv_notification_setting;
+    private TextView tv_check_update;
+    private TextView tv_change_password;
+    private TextView tv_share_to_friend;
+    private TextView tv_log_out;
 
     private FragmentManager mFragmentManager;
     private Fragment course_fragment, activity_fragment, video_fragment, me_fragment;
@@ -102,6 +109,16 @@ public class MainActivity extends MVPBaseActivity<MainPresenter> implements Radi
             case R.id.iv_config:
                 if (config_window == null) {
                     View content = LayoutInflater.from(this).inflate(R.layout.content_config, null);
+                    tv_notification_setting = (TextView) content.findViewById(R.id.tv_notification_setting);
+                    tv_check_update = (TextView) content.findViewById(R.id.tv_check_update);
+                    tv_change_password = (TextView) content.findViewById(R.id.tv_change_password);
+                    tv_share_to_friend = (TextView) content.findViewById(R.id.tv_share_to_friend);
+                    tv_log_out = (TextView) content.findViewById(R.id.tv_log_out);
+                    tv_notification_setting.setOnClickListener(this);
+                    tv_check_update.setOnClickListener(this);
+                    tv_change_password.setOnClickListener(this);
+                    tv_share_to_friend.setOnClickListener(this);
+                    tv_log_out.setOnClickListener(this);
                     content.measure(0, 0);
                     config_window = new PopupWindow(this);
                     config_window.setContentView(content);
@@ -116,6 +133,21 @@ public class MainActivity extends MVPBaseActivity<MainPresenter> implements Radi
                     config_window.dismiss();
                 else
                     config_window.showAsDropDown(rl_title_wrapper, config_offset, 0);
+                break;
+            case R.id.tv_notification_setting:
+                startActivity(NotificationSettingActivity.class);
+                break;
+            case R.id.tv_check_update:
+                Log.e("======", "1");
+                break;
+            case R.id.tv_change_password:
+                startActivity(ChangePasswordActivity.class);
+                break;
+            case R.id.tv_share_to_friend:
+                Log.e("======", "3");
+                break;
+            case R.id.tv_log_out:
+                Log.e("======", "4");
                 break;
         }
     }

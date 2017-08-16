@@ -15,7 +15,7 @@ import com.baienda.xiaoyan.adapter.UserListAdapter;
 import com.baienda.xiaoyan.base.mvpbase.MVPBaseActivity;
 import com.baienda.xiaoyan.mvp.contract.AddFriendContract;
 import com.baienda.xiaoyan.mvp.presenter.AddFriendPresenter;
-import com.baienda.xiaoyan.recyclerview.RecyclerViewDivider;
+import com.baienda.xiaoyan.recyclerview.decoration.DividerDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,7 +57,7 @@ public class AddFriendActivity extends MVPBaseActivity<AddFriendPresenter> imple
         user_list_adapter = new UserListAdapter(this, R.layout.item_user_list, user_list_data);
         rv_user_list.setAdapter(user_list_adapter);
         rv_user_list.setLayoutManager(new LinearLayoutManager(this));
-        rv_user_list.addItemDecoration(new RecyclerViewDivider(false));
+        rv_user_list.addItemDecoration(new DividerDecoration(false));
 
         mPresenter.start();
     }
