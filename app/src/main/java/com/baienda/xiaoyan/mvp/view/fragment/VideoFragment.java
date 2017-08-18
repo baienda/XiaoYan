@@ -46,13 +46,9 @@ public class VideoFragment extends MVPBaseFragment<VideoPresenter> implements Vi
     }
 
     @Override
-    public void initEvent() {
+    public void onViewCreated() {
         smart_refresh_layout.setOnLoadmoreListener(this);
         smart_refresh_layout.setOnRefreshListener(this);
-    }
-
-    @Override
-    public void init() {
         smart_refresh_layout.setEnableAutoLoadmore(false);
 
         hot_categories_data = new ArrayList();

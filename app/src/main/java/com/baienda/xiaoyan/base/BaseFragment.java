@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 
 import com.baienda.xiaoyan.base.mvpbase.MVPBaseFragment;
-import com.baienda.xiaoyan.retrofit.NetworkManager;
+import com.baienda.xiaoyan.retrofit.NetManager;
 import com.baienda.xiaoyan.utils.dialog.LoadingDialog;
 
 import org.greenrobot.eventbus.EventBus;
@@ -44,8 +44,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         if (registerEventBus())
             EventBus.getDefault().register(this);
         mActivity = getActivity();
-        initEvent();
-        init();
+        onViewCreated();
         return mRootView;
     }
 
@@ -59,14 +58,9 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     }
 
     /**
-     * 设置监听
-     */
-    public abstract void initEvent();
-
-    /**
      * 初始化
      */
-    public abstract void init();
+    public abstract void onViewCreated();
 
     @Override
     public void onHiddenChanged(boolean hidden) {
@@ -82,7 +76,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         super.onDestroyView();
         //如果不是MVP模式，则取消记录的网络请求
         if (!(this instanceof MVPBaseFragment)) {
-            NetworkManager.getInstance().cancelRequests(getClass().getName());
+            NetManager.getInstance().cancelRequests(getClass().getName());
         }
     }
 

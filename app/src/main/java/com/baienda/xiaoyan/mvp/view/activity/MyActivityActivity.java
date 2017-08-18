@@ -24,13 +24,10 @@ public class MyActivityActivity extends MVPBaseActivity<MyActivityPresenter> imp
     }
 
     @Override
-    public void initEvent() {
-        iv_left.setOnClickListener(this);
-    }
-
-    @Override
-    public void init() {
+    public void onActivityCreated() {
         tv_title.setText(getString(R.string.my_activity));
+        iv_left.setOnClickListener(this);
+
 
     }
 

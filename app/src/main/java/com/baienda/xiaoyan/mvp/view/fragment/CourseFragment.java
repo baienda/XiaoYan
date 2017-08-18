@@ -39,13 +39,9 @@ public class CourseFragment extends MVPBaseFragment<CoursePresenter> implements 
     }
 
     @Override
-    public void initEvent() {
+    public void onViewCreated() {
         smart_refresh_layout.setOnLoadmoreListener(this);
         smart_refresh_layout.setOnRefreshListener(this);
-    }
-
-    @Override
-    public void init() {
         smart_refresh_layout.setEnableAutoLoadmore(false);
         hot_courses_data = new ArrayList();
         hot_courses_adapter = new HotCoursesAdapter(getContext(), R.layout.item_hot_courses, hot_courses_data);

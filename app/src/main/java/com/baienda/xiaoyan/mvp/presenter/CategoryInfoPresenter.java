@@ -2,6 +2,7 @@ package com.baienda.xiaoyan.mvp.presenter;
 
 import com.baienda.xiaoyan.base.mvpbase.MVPBasePresenter;
 import com.baienda.xiaoyan.mvp.contract.CategoryInfoContract;
+import com.baienda.xiaoyan.mvp.model.CategoryInfoModel;
 import com.baienda.xiaoyan.mvp.view.activity.CategoryInfoActivity;
 
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import java.util.List;
  * Created by Serenade on 2017/8/14.
  */
 
-public class CategoryInfoPresenter extends MVPBasePresenter<CategoryInfoActivity> implements CategoryInfoContract.Presenter {
+public class CategoryInfoPresenter extends MVPBasePresenter<CategoryInfoActivity, CategoryInfoModel> implements CategoryInfoContract.Presenter {
     @Override
     public void start() {
         List data = new ArrayList();

@@ -11,4 +11,8 @@ public interface BaseContract {
     interface Presenter{
         void start();
     }
+
+    interface Model{
+
+    }
 }

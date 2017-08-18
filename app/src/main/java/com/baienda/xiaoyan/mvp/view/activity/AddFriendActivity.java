@@ -44,14 +44,10 @@ public class AddFriendActivity extends MVPBaseActivity<AddFriendPresenter> imple
     }
 
     @Override
-    public void initEvent() {
+    public void onActivityCreated() {
+        tv_title.setText(getString(R.string.search_friend));
         iv_left.setOnClickListener(this);
         et_input.setOnTouchListener(this);
-    }
-
-    @Override
-    public void init() {
-        tv_title.setText(getString(R.string.search_friend));
 
         user_list_data = new ArrayList();
         user_list_adapter = new UserListAdapter(this, R.layout.item_user_list, user_list_data);

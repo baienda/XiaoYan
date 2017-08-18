@@ -49,17 +49,14 @@ public class UserInfoActivity extends MVPBaseActivity<UserInfoPresenter> impleme
     }
 
     @Override
-    public void initEvent() {
+    public void onActivityCreated() {
+        tv_title.setText(getString(R.string.userinfo));
+
         iv_left.setOnClickListener(this);
         tv_right.setOnClickListener(this);
         ll_head.setOnClickListener(this);
         ll_community.setOnClickListener(this);
         ll_my_qrcode.setOnClickListener(this);
-    }
-
-    @Override
-    public void init() {
-        tv_title.setText(getString(R.string.userinfo));
     }
 
     @Override
@@ -81,6 +78,7 @@ public class UserInfoActivity extends MVPBaseActivity<UserInfoPresenter> impleme
             case R.id.ll_community:
                 break;
             case R.id.ll_my_qrcode:
+                startActivity(MyQrCodeActivity.class);
                 break;
         }
     }

@@ -60,13 +60,9 @@ public class ChatActivity extends MVPBaseActivity<ChatPresenter> implements Chat
     }
 
     @Override
-    public void initEvent() {
+    public void onActivityCreated() {
         iv_left.setOnClickListener(this);
         rg_tabs.setOnCheckedChangeListener(this);
-    }
-
-    @Override
-    public void init() {
         chat_data = new ArrayList();
         address_list_data = new ArrayList();
 

@@ -39,7 +39,8 @@ public class NotificationSettingActivity extends BaseActivity implements Compoun
     }
 
     @Override
-    public void initEvent() {
+    public void onActivityCreated() {
+        tv_title.setText(getString(R.string.notification_setting));
         iv_left.setOnClickListener(this);
         ll_receive_new_notification.setOnClickListener(this);
         ll_voice.setOnClickListener(this);
@@ -48,11 +49,7 @@ public class NotificationSettingActivity extends BaseActivity implements Compoun
         cb_receive_new_notification.setOnCheckedChangeListener(this);
         cb_voice.setOnCheckedChangeListener(this);
         cb_shake.setOnCheckedChangeListener(this);
-    }
 
-    @Override
-    public void init() {
-        tv_title.setText(getString(R.string.notification_setting));
     }
 
     @Override

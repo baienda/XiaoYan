@@ -15,7 +15,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
  */
 
 public class InterceptorUtil {
-    public static String TAG = "----";
+    public static String TAG = "-------------";
 
     //日志拦截器
     public static HttpLoggingInterceptor LogInterceptor() {

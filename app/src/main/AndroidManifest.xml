@@ -34,8 +34,9 @@
         <activity android:name=".mvp.view.activity.AddFriendActivity" />
         <activity android:name=".mvp.view.activity.GroupActivity" />
         <activity android:name=".mvp.view.activity.UserInfoActivity" />
-        <activity android:name=".mvp.view.activity.NotificationSettingActivity"/>
-        <activity android:name=".mvp.view.activity.ChangePasswordActivity"/>
+        <activity android:name=".mvp.view.activity.NotificationSettingActivity" />
+        <activity android:name=".mvp.view.activity.ChangePasswordActivity" />
+        <activity android:name=".mvp.view.activity.MyQrCodeActivity"></activity>
     </application>
 
 </manifest>

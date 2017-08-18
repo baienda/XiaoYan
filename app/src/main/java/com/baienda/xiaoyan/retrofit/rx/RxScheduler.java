@@ -1,4 +1,4 @@
-package com.baienda.xiaoyan.retrofit;
+package com.baienda.xiaoyan.retrofit.rx;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
@@ -11,18 +11,18 @@ import io.reactivex.schedulers.Schedulers;
  * Created by Serenade on 2017/7/25.
  */
 
-public class Transformer {
+public class RxScheduler {
 
-    public static <T> ObservableTransformer<T, T> defaultTransformer() {
+    public static <T> ObservableTransformer<T, T> defaultScheduler() {
         return new ObservableTransformer<T, T>() {
             @Override
             public ObservableSource<T> apply(@NonNull Observable<T> upstream) {
                 return upstream
-                        .observeOn(Schedulers.io())
-                        .subscribeOn(AndroidSchedulers.mainThread())
-                        .unsubscribeOn(AndroidSchedulers.mainThread());
+                        .subscribeOn(Schedulers.io())
+                        .unsubscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .onTerminateDetach();
             }
         };
     }
-
 }

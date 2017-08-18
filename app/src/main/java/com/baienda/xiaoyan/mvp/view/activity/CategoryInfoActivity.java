@@ -36,14 +36,11 @@ public class CategoryInfoActivity extends MVPBaseActivity<CategoryInfoPresenter>
     }
 
     @Override
-    public void initEvent() {
-        iv_left.setOnClickListener(this);
-    }
-
-    @Override
-    public void init() {
+    public void onActivityCreated() {
         String title = getIntent().getStringExtra("title");
         tv_title.setText(title);
+        iv_left.setOnClickListener(this);
+
 
         category_info_data = new ArrayList();
         category_info_adapter = new CategoryInfoAdapter(this, R.layout.item_category_info, category_info_data);

@@ -23,6 +23,7 @@ import com.baienda.xiaoyan.mvp.view.fragment.ActivityFragment;
 import com.baienda.xiaoyan.mvp.view.fragment.CourseFragment;
 import com.baienda.xiaoyan.mvp.view.fragment.MeFragment;
 import com.baienda.xiaoyan.mvp.view.fragment.VideoFragment;
+import com.baienda.xiaoyan.utils.ShiPeiUtils;
 import com.baienda.xiaoyan.utils.system.SystemUtil;
 
 import butterknife.BindView;
@@ -69,14 +70,11 @@ public class MainActivity extends MVPBaseActivity<MainPresenter> implements Radi
     }
 
     @Override
-    public void initEvent() {
+    public void onActivityCreated() {
         rg_bottom_menu.setOnCheckedChangeListener(this);
         tv_city.setOnClickListener(this);
         iv_config.setOnClickListener(this);
-    }
 
-    @Override
-    public void init() {
         mFragmentManager = getSupportFragmentManager();
         course_fragment = new CourseFragment();
         content_fragment = course_fragment;
@@ -84,6 +82,7 @@ public class MainActivity extends MVPBaseActivity<MainPresenter> implements Radi
                 .add(R.id.fl_fragment, course_fragment)
                 .commit();
         initTabs();
+        ShiPeiUtils.getDimenXML();
     }
 
     private void initTabs() {

@@ -40,13 +40,10 @@ public class MyOrderActivity extends MVPBaseActivity<MyOrderPresenter> implement
     }
 
     @Override
-    public void initEvent() {
-        iv_left.setOnClickListener(this);
-    }
-
-    @Override
-    public void init() {
+    public void onActivityCreated() {
         tv_title.setText(getString(R.string.my_order));
+        iv_left.setOnClickListener(this);
+
 
         tl_tabs.addTab(tl_tabs.newTab().setText("购买成功"),true);
         tl_tabs.addTab(tl_tabs.newTab().setText("未支付"));

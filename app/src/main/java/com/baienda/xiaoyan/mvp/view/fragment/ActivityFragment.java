@@ -37,12 +37,7 @@ public class ActivityFragment extends MVPBaseFragment<ActivityPresenter> impleme
     }
 
     @Override
-    public void initEvent() {
-
-    }
-
-    @Override
-    public void init() {
+    public void onViewCreated() {
         activity_list_data = new ArrayList();
         activity_list_adapter = new ActivityListAdapter(getContext(), R.layout.item_activity_list, activity_list_data);
         rv_activity_list.setAdapter(activity_list_adapter);

@@ -2,7 +2,6 @@ package com.baienda.xiaoyan.mvp.view.activity;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -37,13 +36,10 @@ public class NewFriendActivity extends MVPBaseActivity<NewFriendPresenter> imple
     }
 
     @Override
-    public void initEvent() {
-        iv_left.setOnClickListener(this);
-    }
-
-    @Override
-    public void init() {
+    public void onActivityCreated() {
         tv_title.setText(getString(R.string.new_friend));
+        iv_left.setOnClickListener(this);
+
         new_friend_data = new ArrayList();
         new_friend_adapter = new FriendRequestAdapter(this, R.layout.item_friend_request, new_friend_data);
         rv_friend_request_list.setAdapter(new_friend_adapter);

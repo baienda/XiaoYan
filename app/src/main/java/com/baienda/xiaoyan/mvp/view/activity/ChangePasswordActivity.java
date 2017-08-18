@@ -52,17 +52,12 @@ public class ChangePasswordActivity extends MVPBaseActivity<ChangePasswordPresen
     }
 
     @Override
-    public void initEvent() {
+    public void onActivityCreated() {
         iv_left.setOnClickListener(this);
         btn_complete.setOnClickListener(this);
 
         cb_password.setOnCheckedChangeListener(this);
         cb_confirm_password.setOnCheckedChangeListener(this);
-    }
-
-    @Override
-    public void init() {
-
     }
 
     @Override

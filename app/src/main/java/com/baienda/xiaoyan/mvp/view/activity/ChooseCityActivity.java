@@ -31,12 +31,7 @@ public class ChooseCityActivity extends MVPBaseActivity<ChooseCityPresenter> imp
     }
 
     @Override
-    public void initEvent() {
-
-    }
-
-    @Override
-    public void init() {
+    public void onActivityCreated() {
         location_data = new ArrayList<String>();
         choose_city_adapter = new ChooseCityAdapter(this, R.layout.item_choose_city, location_data);
         rv_city_list.setAdapter(choose_city_adapter);

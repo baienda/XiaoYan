@@ -68,7 +68,7 @@ public class MeFragment extends MVPBaseFragment<MePresenter> implements MeContra
     }
 
     @Override
-    public void initEvent() {
+    public void onViewCreated() {
         ll_my_order.setOnClickListener(this);
         ll_my_activity.setOnClickListener(this);
         ll_chat.setOnClickListener(this);
@@ -76,10 +76,7 @@ public class MeFragment extends MVPBaseFragment<MePresenter> implements MeContra
         ll_notification.setOnClickListener(this);
         ll_service_team.setOnClickListener(this);
         iv_head.setOnClickListener(this);
-    }
 
-    @Override
-    public void init() {
         head_zoom_scrollview.setZoomView(iv_bg);
         head_zoom_scrollview.setHigherView(rl_higher_view);
     }

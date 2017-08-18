@@ -25,7 +25,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.baienda.xiaoyan.base.mvpbase.MVPBaseActivity;
-import com.baienda.xiaoyan.retrofit.NetworkManager;
+import com.baienda.xiaoyan.retrofit.NetManager;
 import com.baienda.xiaoyan.utils.app.AppManager;
 import com.baienda.xiaoyan.utils.dialog.LoadingDialog;
 
@@ -58,10 +58,8 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         mBind = ButterKnife.bind(this);
         //添加Activity到管理堆栈
         AppManager.getInstance().addActivity(this);
-        //注册监听事件
-        initEvent();
         //初始化
-        init();
+        onActivityCreated();
     }
 
     /**
@@ -83,14 +81,9 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     int setLayout();
 
     /**
-     * 设置监听
-     */
-    public abstract void initEvent();
-
-    /**
      * 初始化
      */
-    public abstract void init();
+    public abstract void onActivityCreated();
 
 
     /**
@@ -102,7 +95,6 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         return mRootView;
     }
 
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -113,7 +105,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         AppManager.getInstance().finishActivity(this);
         //如果不是MVP模式，则取消记录的网络请求
         if (!(this instanceof MVPBaseActivity)) {
-            NetworkManager.getInstance().cancelRequests(getClass().getName());
+            NetManager.getInstance().cancelRequests(getClass().getName());
         }
     }
 
@@ -305,7 +297,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     private void setupStatusBarView(Activity activity, ViewGroup contentLayout, int color) {
         View statusBarView = new View(activity);
         ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, getStatusBarHeight());
-        contentLayout.addView(statusBarView,0, lp);
+        contentLayout.addView(statusBarView, 0, lp);
         statusBarView.setBackgroundColor(color);
     }
 

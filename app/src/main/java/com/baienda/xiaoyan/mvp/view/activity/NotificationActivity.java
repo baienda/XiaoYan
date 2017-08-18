@@ -24,13 +24,10 @@ public class NotificationActivity extends MVPBaseActivity<NotificationPresenter>
     }
 
     @Override
-    public void initEvent() {
-        iv_left.setOnClickListener(this);
-    }
-
-    @Override
-    public void init() {
+    public void onActivityCreated() {
         tv_title.setText(getString(R.string.notification));
+        iv_left.setOnClickListener(this);
+
     }
 
     @Override
